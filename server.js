@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const { 
+    v1: uuidv1,
+    v4: uuidv4,
+  } = require('uuid');
 const db = require('./db/db.json');
 const PORT = process.env.PORT || 3007;
 
@@ -21,6 +25,7 @@ app.get('/notes', (req, res) => {
 // POST Route for New Note
 app.post('/notes', (req, res) => {
     const newNote = req.body;
+    newNote.id = uuidv4();
     db.push(newNote);
     console.log(newNote);
     fs.writeFileSync(path.join(__dirname + '/db/db.json'), JSON.stringify(db,null,4));
@@ -29,14 +34,17 @@ app.post('/notes', (req, res) => {
     res.status(201).send(`Created Note.`);
 });
 
+// DELETE Route for Created Notes
+app.delete('/notes', (req, res) => {
+    console.log(req.body);
+});
+
+
 // HTML Landing Page GET Route
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
     
 });
-
-
-
 
 
 app.listen(PORT, () => {
