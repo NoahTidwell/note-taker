@@ -19,8 +19,11 @@ app.use(express.static(path.join(__dirname, './public')));
 // HTML Notes Page GET Route
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
-    console.log(db);
 
+});
+
+app.get('/api/notes', (req, res) => {
+    res.json(db);
 });
 
 // POST Route for New Note
@@ -33,19 +36,15 @@ app.post('/notes', (req, res) => {
     db.push(newNote);
     console.log(newNote);
 
-    // Write new db.json file witht he newNote data added
+    
     fs.writeFileSync(path.join(__dirname + '/db/db.json'), JSON.stringify(db,null,4));
     // send file to display Notes HTML page
-        res.sendFile(path.join(__dirname + './public/notes.html'));
-
-    res.status(201).send(`Created Note.`);
+    res.sendFile(path.join(__dirname + '/public/notes.html'));
 });
 
-// DELETE Route for Created Notes
-app.delete('/notes:id', (req, res) => {
-    console.log(req.params.id);
-    res.send(`Hello World!`)
-});
+// BONUS: DELETE Route for Created Notes
+//app.delete('/api/notes/:id', (req, res) => {
+//});
 
 
 // HTML Landing Page GET Route
