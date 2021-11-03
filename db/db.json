@@ -20,5 +20,13 @@
     {
         "note_title": "Go to Bank",
         "note_description": "Deposit Check"
+    },
+    {
+        "note_title": "Go to Bank",
+        "note_description": "Deposit Cash"
+    },
+    {
+        "note_title": "Go to Grocery",
+        "note_description": "Get Produce"
     }
 ]

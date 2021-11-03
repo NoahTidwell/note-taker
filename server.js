@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const db = require('./db/db.json');
-const uuidv4 = require('uuid');
 const PORT = process.env.PORT || 3007;
 
 // Create Server
