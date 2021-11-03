@@ -2,40 +2,5 @@
     {
         "note_title": "Test Title",
         "note_description": "Test text"
-    },
-    [
-        {
-            "note_title": "Hello Express",
-            "note_description": "Test text"
-        },
-        {
-            "note_title": "Go to Bank",
-            "note_description": "Deposit Check at the bank"
-        }
-    ],
-    {
-        "note_title": "Go to Bank",
-        "note_description": "Deposit Check"
-    },
-    {
-        "note_title": "Go to Bank",
-        "note_description": "Deposit Check"
-    },
-    {
-        "note_title": "Go to Bank",
-        "note_description": "Deposit Cash"
-    },
-    {
-        "note_title": "Go to Grocery",
-        "note_description": "Get Produce"
-    },
-    {
-        "note_title": "Finish Code Project",
-        "note_description": "Write express.js backend for assignment"
-    },
-    {
-        "note_title": "Feed the dogs",
-        "note_description": "Feed the dogs and give them their medicine",
-        "id": "c2b25997-7fa2-4623-a9a0-dfc5ee5b9ea4"
     }
 ]

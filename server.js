@@ -19,24 +19,32 @@ app.use(express.static(path.join(__dirname, './public')));
 // HTML Notes Page GET Route
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
+    console.log(db);
 
 });
 
 // POST Route for New Note
 app.post('/notes', (req, res) => {
     const newNote = req.body;
+
+    // create unique ID for each note
     newNote.id = uuidv4();
+    // add newNote to db.json file
     db.push(newNote);
     console.log(newNote);
+
+    // Write new db.json file witht he newNote data added
     fs.writeFileSync(path.join(__dirname + '/db/db.json'), JSON.stringify(db,null,4));
-        res.sendFile(path.join(__dirname + '/public/notes.html'));
+    // send file to display Notes HTML page
+        res.sendFile(path.join(__dirname + './public/notes.html'));
 
     res.status(201).send(`Created Note.`);
 });
 
 // DELETE Route for Created Notes
-app.delete('/notes', (req, res) => {
-    console.log(req.body);
+app.delete('/notes:id', (req, res) => {
+    console.log(req.params.id);
+    res.send(`Hello World!`)
 });
 
 
