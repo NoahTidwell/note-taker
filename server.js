@@ -5,12 +5,12 @@ const db = require('./db/db.json');
 const uuidv4 = require('uuid');
 const PORT = process.env.PORT || 3007;
 
-
+// Create Server
 const app = express();
 
+// Express Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, './public')));
 
 // HTML Notes Page GET Route
@@ -21,7 +21,12 @@ app.get('/notes', (req, res) => {
 
 // POST Route for New Note
 app.post('/notes', (req, res) => {
-    console.log(req.body);
+    const newNote = req.body;
+    db.push(newNote);
+    console.log(newNote);
+    fs.writeFileSync(path.join(__dirname + '/db/db.json'), JSON.stringify(db,null,4));
+        res.sendFile(path.join(__dirname + '/public/notes.html'));
+
     res.status(201).send(`Created Note.`);
 });
 
