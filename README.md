@@ -10,6 +10,10 @@
 - [Contribution](#contribution)
 - [Testing](#testing)
 - [Additional Info](#additional-info)
+## Link
+https://desolate-taiga-26958.herokuapp.com/
+## Snippet
+<img width="1410" alt="Screen Shot 2021-11-05 at 1 44 01 AM" src="https://user-images.githubusercontent.com/88866431/140469484-32a774a5-b4b8-403a-97af-6f8519670ed1.png">
 
 ## Description:
 A simple application to take and store notes. Powered by ExpressJS.
