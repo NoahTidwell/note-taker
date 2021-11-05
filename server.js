@@ -41,8 +41,29 @@ app.post('/api/notes', (req, res) => {
 });
 
 // BONUS: DELETE Route for Created Notes
-//app.delete('/api/notes/:id', (req, res) => {
-//});
+app.delete('/api/notes/:id', (req, res) => {
+    const params = [req.params.id];
+
+    let blankNote = [];
+
+    for (let i = 0; i < db.length; i++) {
+        if (db[i].id !== req.params.id) {
+            blankNote.push(db[i]);
+        }
+    }
+
+    db = blankNote;
+    fs.writeFileSync(path.join(__dirname + '/db/db.json'), JSON.stringify(db,null,4));
+    res.sendFile(path.join(__dirname + '/public/notes.html'));
+
+
+
+    res.json({
+        message: 'Delete Successful',
+        data: params
+    });
+    console.log('Deleted ID ' + params + ' from Notes');
+});
 
 // HTML Notes Page GET Route
 app.get('/notes', (req, res) => {
