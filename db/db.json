@@ -1,9 +1,5 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
         "title": "Finish Express.js Project",
         "text": "Build a backend server for Assignment",
         "id": "149db4e2-e8bc-436d-b217-2725ae1d8d49"
